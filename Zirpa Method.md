@@ -26,5 +26,9 @@ It's easier to see with parenthesis
 `[] + () + I + E = [(I)E]`
 
 When a double is the last letter you put an 'E' follow by the last char of the double consonant.
-Example:
-- 
+Examples:
+- Balls -> Bals -> Balek (_bahlaek_).
+- Term -> Teprm -> Teprem (_teprrem_)
+- Step -> Stepkep
+
+If you wanna know how a word looks like in Zirpa Method, try using the program in `src/`
