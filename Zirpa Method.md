@@ -23,7 +23,7 @@ And of course you have Double Trouble.
 MN + SK + I + E = MSIKEN
 
 It's easier to see with parenthesis
-[] + () + I + E = [(I)E]
+`[] + () + I + E = [(I)E]`
 
 When a double is the last letter you put an 'E' follow by the last char of the double consonant.
 Example:
