@@ -1,10 +1,9 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <queue>
 using namespace std;
 
-vector<string> readlines(const string path){
+vector<string> readlines(const string& path){
     fstream file(path, ios::in);
     vector<string> lines;
     if(file.is_open()){
@@ -128,6 +127,7 @@ vector<string> split(const string& text, const char& by = ' '){
             part += c;
     if(part != "")
         parts.push_back(part);
+
     return parts;
 }
 
@@ -135,9 +135,10 @@ string zirpify(const vector<string>& lines){
     string output;
     for(string line : lines){
         string zirpa_chars = zirpify_chars(line);
-        auto split_line = split(zirpa_chars, ' ');
-        for(string part : split_line)
+        vector<string> split_line = split(zirpa_chars, ' ');
+        for(string part : split_line){
             output += zirpify_text(part) + ' ';
+        }
         output += '\n';
     }
 
@@ -145,9 +146,18 @@ string zirpify(const vector<string>& lines){
 }
 
 int main(int argc, char* argv[]){
-    if(argc == 1){
+    if(argc == 1){ // zirpa
         string input;
         cout << "Zirpa: "; getline(cin, input);
         cout << "Output: " << zirpify({input});
+    }else if(argc == 2){ // zirpa <INPUT_FILE>
+        string output = zirpify(readlines(argv[1]));
+        cout << output;
+    }else if(argc == 3){ // zirpa <INPUT_FILE> <OUTPUT_FILE>
+        string output = zirpify(readlines(string(argv[1])));
+        fstream out_file(argv[2], ios::out);
+        if(out_file.is_open()){
+            out_file << output;
+        }
     }
 }
